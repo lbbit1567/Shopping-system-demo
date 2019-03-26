@@ -1,0 +1,25 @@
+<h1>會員資料</h1>
+<table class="table table-hover table-bordered table-responsive">
+  <tr>
+    <td>姓名</td><td>{$user.user_name}</td>
+  </tr>
+  <tr>
+    <td>帳號</td><td>{$user.user_id}</td>
+  </tr>
+  <tr>
+    <td>Email</td><td>{$user.user_email}</td>
+  </tr>
+  <tr>
+    <td>性別</td><td>{$user.user_sex}</td>
+  </tr>
+  <tr>
+    <td>電話</td><td>{$user.user_tel}</td>
+  </tr>
+  <tr>
+    <td>地址</td><td>{$user.user_zip}{$user.user_county}{$user.user_district}{$user.user_address}</td>
+  </tr>
+</table>
+
+  <div class="text-center">
+    <a href="user.php?op=user_form&user_sn={$user.user_sn}" class="btn btn-primary">編輯帳號</a>
+  </div>

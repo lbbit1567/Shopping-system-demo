@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-md-6">
+    <img class="img-thumbnail"  src="{$goods.pic}" alt="{$goods.goods_title}">
+  </div>
+  <div class="col-md-6">
+    <h2><span class="badge badge-secondary">{$goods.goods_title}</span></h2>
+    <p>售價: {$goods.goods_price} 元</p>
+    <p>人氣: {$goods.goods_counter}</p>
+      {if isset($username)}
+      <div class="pt-5 mt-5 offset-md-6">
+        <div class="pt-5 mt-2">
+          <a href="tool.php?op=goods_form&goods_sn={$goods.goods_sn}" class="btn btn-warning">編輯商品</a>
+          <a href="tool.php?op=delete_goods&goods_sn={$goods.goods_sn}" class="btn btn-danger" onclick="deletewarging()">刪除商品</a>
+        </div>
+      </div>
+      {/if}
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item ">
+        <a class="nav-link active" id="goods-tab" data-toggle="pill" href="#goods" role="tab" aria-controls="goods" aria-selected="true">商品介紹</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="return-tab" data-toggle="pill" href="#return" role="tab" aria-controls="return" aria-selected="false">退換須知</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="service-tab" data-toggle="pill" href="#service" role="tab" aria-controls="service" aria-selected="false">售後服務</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="goods" role="tabpanel" aria-labelledby="goods-tab"><p>{$goods.goods_content}</p></div>
+      <div class="tab-pane fade" id="return" role="tabpanel" aria-labelledby="return-tab"><p>如您需要退換商品 請填單</p></div>
+      <div class="tab-pane fade" id="service" role="tabpanel" aria-labelledby="service-tab"><p>目前沒有售後服務</p></div>
+    </div>
+  </div>
+</div>

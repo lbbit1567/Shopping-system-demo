@@ -1,0 +1,87 @@
+<h1>會員註冊</h1>
+
+<script language="javascript" src="jQuery-TWzipcode-master/jquery.twzipcode.min.js"></script>  <!--引用地址套件的JS-->
+<script language="javascript" src="jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_TW.js"></script> <!--引用檢查表格JS -->
+<script language="javascript" src="jQuery-Validation-Engine-master/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script> <!--引用檢查表格JS的中文語系 -->
+<link rel="stylesheet" href="jQuery-Validation-Engine-master/css/validationEngine.jquery.css" type="text/css"> <!--引用檢查表格JS的外觀 -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#addr_form").twzipcode();
+    $("#user_form").validationEngine({});
+  });
+</script>
+
+{if $user.user_sn>0}
+  <input type="hidden" name="op" value="update_user">
+  <input type="hidden" name="user_sn" value="{$user.user_sn}">
+{else}
+  <input type="hidden" name="op" value="insert_user">
+{/if}
+
+<form action="user.php" id="user_form" method="post" class="form-horizontal" role="form" enctype="multipart/form-data">
+
+  <div class="form-group row">
+    <label class="col-md-2 col-form-label text-right" for="user_name">姓名: </label>
+    <div class="col-md-4">
+      <input type="text" class="form-control validate[required]" name="user_name" id="user_name" placeholder="請輸入姓名" value="{$user.user_name}">
+    </div>
+    <label class="col-md-2 col-form-label text-right" for="user_email">Email: </label>
+    <div class="col-md-4">
+      <input type="text" class="form-control validate[required,custom[email]]" name="user_email" id="user_email" placeholder="請輸入Email" value="{$user.user_email}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-md-2 col-form-label text-right" for="user_id">帳號: </label>
+    <div class="col-md-4">
+      <input type="text" class="form-control validate[required,custom[onlyLetterNumber]]" name="user_id" id="user_id" placeholder="請輸入帳號" value="{$user.user_id}">
+    </div>
+    <label class="col-md-2 col-form-label text-right" for="user_passwd">密碼: </label>
+    <div class="col-md-4 has-error">
+      <input type="password" class="form-control {if $user.user_passwd==''}validate[required,custom[onlyLetterNumber]]{/if}" name="user_passwd" id="user_passwd" value="{$user.user_passwd}"
+      placeholder="{if $user.user_passwd}需要改密碼時填寫{else}請輸入密碼{/if}">
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-md-2 col-form-label text-right" for="user_tel">電話: </label>
+    <div class="col-md-4">
+      <input type="text" class="form-control validate[required,custom[phone]]" name="user_tel" id="user_tel" placeholder="請輸入電話號碼" value="{$user.user_tel}">
+    </div>
+    <label class="col-md-2 col-form-label text-right" for="user_sex">性別: </label>
+    <div class="col-md-4">
+      <label class="radio-inline col-form-label col-md-4 ">
+        <input type="radio" name="user_sex" id="user_sex_1" required="required" value="先生"{if $user.user_sex=='先生'}checked{/if}>先生
+      </label>
+      <label class="radio-inline col-form-label col-md-4">
+        <input type="radio"  name="user_sex" id="user_sex_0" required="required" value="女士"{if $user.user_sex=='女士'}checked{/if}>女士
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group row" id="addr_form">
+    <label class="col-md-2 col-form-label text-right" for="user_address">地址: </label>
+      <div class="col-md-2">
+        <div data-role="zipcode" data-name="user_zip" data-value="{$user.user_zip}" data-required="1|0" data-style="form-control"></div>
+      </div>
+      <div class="col-md-2">
+        <div data-role="county" data-name="user_county" data-value="{$user.user_county}" data-required="1|0" data-style="form-control"></div>
+      </div>
+      <div class="col-md-2">
+        <div data-role="district" data-name="user_district" data-value="{$user.user_district}" data-required="1|0" data-style="form-control"></div>
+      </div>
+
+      <div class="col-md-4">
+        <input type="text" class="form-control validate[required]" name="user_address" id="user_address" placeholder="請輸入地址" value="{$user.user_address}">
+      </div>
+  </div>
+
+
+    <div class="text-center">
+      <input type="hidden" name="op" value="insert_user">
+      <button type="submit" class="btn btn-primary">註冊</button>
+    </div>
+
+</form>

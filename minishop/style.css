@@ -1,0 +1,39 @@
+﻿a.active{
+   background-color: #666666 !important;
+  }
+
+body{
+   background-image: url('images/bg.jpg');
+   font-family: 微軟正黑體;
+   font-size:16px;
+}
+
+.container{
+   background: rgba(255, 255, 255, 0.8);
+
+}
+
+#shop_head{
+   margin-bottom:15px;
+}
+
+#shop_main{
+   min-height:350px;
+}
+
+#shop_foot{
+   //背景色套用漸層
+   background: rgb(40,52,59); /* Old browsers */
+   background: -moz-linear-gradient(-45deg, rgba(40,52,59,1) 0%, rgba(130,140,149,1) 64%, rgba(181,189,200,1) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(-45deg, rgba(40,52,59,1) 0%,rgba(130,140,149,1) 64%,rgba(181,189,200,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(135deg, rgba(40,52,59,1) 0%,rgba(130,140,149,1) 64%,rgba(181,189,200,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+   color: #fff;
+   padding: 23px;
+   line-height:1.7;
+}
+
+#loginbtn{
+  border-style: solid;
+  border-color: white;
+}

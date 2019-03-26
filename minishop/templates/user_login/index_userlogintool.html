@@ -1,0 +1,10 @@
+<div class="card card-primary bg-secondary">
+  <h5 class="card-header text-white">功能表</h5>
+  <div class="card-body text-white">
+    {if isset($user_id)}
+      {include file='user_login/index_usertool.html'}
+    {else}
+      {include file='user_login/index_userlogin.html'}
+    {/if}
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang=zh-Hant dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>測試BOOTSTARP</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" charset="utf-8">
+  </head>
+  <body>
+    <div class="container">
+      <div id="shop_head">
+        <a href="index.php"><img src="images/banner3.jpg" alt="測試標題" class="img-responsive" style="display:block; margin:auto;"></a>
+      </div>
+
+      <div id="shop_main" class="row">
+        <div class="col-md-9 col-sm-8">
+          {if $op=="goods_form"}
+            {include file="goods_form.html"}
+          {elseif $op=="goods_display"}
+            {include file="goods_display.html"}
+          {elseif $op=="user_form"}
+            {include file="user_form.html"}
+          {elseif $op=="display_user"}
+            {include file="display_user.html"}
+          {else}
+            {include file="goods_list.html"}
+            共有 {$total} 件商品
+            {$bar}
+          {/if}
+        </div>
+        <div class="col-md-3 col-sm-4">
+          {include file='user_login/index_userlogintool.html'}
+        </div>
+      </div>
+
+      <div id="shop_foot">
+        <div>網頁開發:劉思祺</div>
+        <div>版權所有 Copyright © 劉思祺 All Rights Reserved.</div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
